@@ -107,7 +107,7 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | insufficientDataActions| JSON       | Optional: Array of strings. Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover. See README for more deatails.
 | metricName             | String     | Required: The name for the metric associated with the alarm. Minimum length of 1. Maximum length of 255.
 | namespace              | String     | Required: The namespace for the metric associated with the alarm. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
-| OKActions              | JSON       | Optional: The actions to execute when this alarm transitions to an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover. See README for more details.
+| oKActions              | JSON       | Optional: The actions to execute when this alarm transitions to an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover. See README for more details.
 | period                 | String     | Required: The period, in seconds, over which the specified statistic is applied. Minimum value of 60.
 | statistic              | String     | Optional: The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ExtendedStatistic. Valid Values: SampleCount | Average | Sum | Minimum | Maximum
 | threshold              | String     | Required: The value against which the specified statistic is compared.
@@ -228,7 +228,7 @@ Retrieves the specified alarms. If no alarms are specified, all alarms are retur
 | region         | String     | Required: The region for endpoint. See README for all possible values.
 | actionPrefix   | String     | Optional: The action name prefix. Minimum length of 1. Maximum length of 1024.
 | alarmNamePrefix| String     | Optional: The alarm name prefix. You cannot specify AlarmNames if this parameter is specified.
-| AlarmNames     | JSON       | Optional: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
+| alarmNames     | JSON       | Optional: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
 | maxRecords     | String     | Optional: The maximum number of alarm descriptions to retrieve. Minimum value of 1. Maximum value of 100.
 | nextToken      | String     | Optional: The token returned by a previous call to indicate that there is more data available.
 | stateValue     | String     | Optional: The state value to be used in matching alarms. Valid Values: OK | ALARM | INSUFFICIENT_DATA

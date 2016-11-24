@@ -26,7 +26,7 @@ $app->post('/api/AmazonCloudWatch/describeAlarms', function ($request, $response
         $body['AlarmNamePrefix'] = $post_data['args']['alarmNamePrefix'];
     }
     if(!empty($post_data['args']['alarmNames'])) {
-        $body['alarmNames'] = $post_data['args']['alarmNames'];
+        $body['AlarmNames'] = $post_data['args']['alarmNames'];
     }
     if(!empty($post_data['args']['maxRecords'])) {
         $body['MaxRecords'] = $post_data['args']['maxRecords'];

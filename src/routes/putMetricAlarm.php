@@ -44,8 +44,8 @@ $app->post('/api/AmazonCloudWatch/putMetricAlarm', function ($request, $response
     if(!empty($post_data['args']['insufficientDataActions'])) {
         $body['InsufficientDataActions'] = $post_data['args']['insufficientDataActions'];
     }
-    if(!empty($post_data['args']['OKActions'])) {
-        $body['OKActions'] = $post_data['args']['OKActions'];
+    if(!empty($post_data['args']['oKActions'])) {
+        $body['OKActions'] = $post_data['args']['oKActions'];
     }
     if(!empty($post_data['args']['statistic'])) {
         $body['Statistic'] = $post_data['args']['statistic'];
