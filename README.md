@@ -3,9 +3,9 @@ Amazon CloudWatch enables you to publish, monitor, and manage various metrics, a
 * Domain: amazon.com
 * Credentials: apiKey, apiSecret
 
-## How to get credentials: 
-0. Go to [Amazon Console](https://console.aws.amazon.com/console/home?region=us-east-1)
-1. Log in or create new account
+## How to get credentials:
+    0. Go to [Amazon Console](https://console.aws.amazon.com/console/home?region=us-east-1)
+                                  1. Log in or create new account
 2. Create new group in Groups section at the left side with necessary polices
 3. Create new user and assign to existing group
 4. After creating user you will see credentials
@@ -43,7 +43,7 @@ This endpoint allows to retrieve list the specified metrics.
 | nextToken | String     | Optional: The token returned by a previous call to indicate that there is more data available.
 
 #### dimensions format
-```json
+    ```json
 [
     {
         "Name": "Test",
@@ -71,7 +71,7 @@ This endpoint allows to gets statistics for the specified metric.
 | unit              | String     | Optional: The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit has no effect. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
 #### dimensions format
-```json
+    ```json
 [
     {
         "Name": "Test",
@@ -80,11 +80,11 @@ This endpoint allows to gets statistics for the specified metric.
 ]
 ```
 #### extendedStatistics format
-```json
+    ```json
 ["p0.2", "p25"]
 ```
 #### statistics format
-```json
+    ```json
 ["Average", "Sum"]
 ```
 
@@ -96,7 +96,7 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | apiKey                 | credentials| Required: API key obtained from Amazon.
 | apiSecret              | credentials| Required: API secret  obtained from Amazon.
 | region                 | String     | Required: The region for endpoint. See README for all possible values.
-| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True || false
+| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True or false
 | alarmActions           | JSON       | Optional: Array of strings. The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN). See README for more details.
 | alarmDescription       | String     | Optional: The description for the alarm. Minimum length of 0. Maximum length of 1024.
 | alarmName              | String     | Required: The name for the alarm. This name must be unique within the AWS account. Minimum length of 1. Maximum length of 255.
@@ -114,11 +114,11 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | unit                   | String     | Optional: The unit of measure for the statistic. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
 #### alarmActions format. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover
-```json
+    ```json
 ["arn:aws:automate:region:ec2:stop"]
 ```
 #### dimensions format
-```json
+    ```json
 [
     {
         "Name": "Test",
@@ -127,11 +127,11 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 ]
 ```
 #### insufficientDataActions format
-```json
+    ```json
 ["arn:aws:automate:region:ec2:terminate"]
 ```
 #### OKActions format
-```json
+    ```json
 ["arn:aws:automate:region:ec2:recover"]
 ```
 
@@ -153,7 +153,7 @@ Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates 
 | namespace      | String     | Required: The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
 
 #### dimensions format
-```json
+    ```json
 [
     {
         "Name": "Test",
@@ -162,7 +162,7 @@ Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates 
 ]
 ```
 #### statisticValues format
-```json
+    ```json
 [
     {
         "Maximum": "80",
@@ -198,7 +198,7 @@ Deletes the specified alarms. In the event of an error, no alarms are deleted.
 | alarmNames| JSON       | Required: Array of strings. The alarms to be deleted. Members: Maximum number of 100 items.
 
 #### alarmNames format
-```json
+    ```json
 ["test alarm"]
 ```
 
@@ -234,7 +234,7 @@ Retrieves the specified alarms. If no alarms are specified, all alarms are retur
 | stateValue     | String     | Optional: The state value to be used in matching alarms. Valid Values: OK | ALARM | INSUFFICIENT_DATA
 
 #### alarmNames format
-```json
+    ```json
 ["test alarm"]
 ```
 
@@ -255,7 +255,7 @@ Retrieves the alarms for the specified metric. Specify a statistic, period, or u
 | unit             | String     | Optional: The unit for the metric. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
 #### dimensions format
-```json
+    ```json
 [
     {
         "Name": "Test",
@@ -275,7 +275,7 @@ Disables the actions for the specified alarms. When an alarm's actions are disab
 | alarmNames| JSON       | Required: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
 
 #### alarmNames format
-```json
+    ```json
 ["test alarm"]
 ```
 
@@ -290,6 +290,6 @@ Enables the actions for the specified alarms.
 | alarmNames| JSON       | Required: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
 
 #### alarmNames format
-```json
+    ```json
 ["test alarm"]
 ```
