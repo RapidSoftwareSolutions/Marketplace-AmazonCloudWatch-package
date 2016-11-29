@@ -68,7 +68,7 @@ This endpoint allows to gets statistics for the specified metric.
 | period            | String     | Required: The granularity, in seconds, of the returned data points. A period can be as short as one minute (60 seconds) and must be a multiple of 60. The default value is 60. See README for more details.
 | startTime         | String     | Required: The time stamp that determines the first data point to return. Note that start times are evaluated relative to the time that CloudWatch receives the request. The value specified is inclusive; results include data points with the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).
 | statistics        | JSON       | Optional: Array of strings. The metric statistics, other than percentile. For percentile statistics, use ExtendedStatistic. Minimum number of 1 item. Maximum number of 5 items. Valid Values: SampleCount | Average | Sum | Minimum | Maximum
-| unit              | String     | Optional: The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit has no effect. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
+| unit              | String     | Optional: The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit has no effect. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
 #### dimensions format
     ```json
@@ -96,24 +96,24 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | apiKey                 | credentials| Required: API key obtained from Amazon.
 | apiSecret              | credentials| Required: API secret  obtained from Amazon.
 | region                 | String     | Required: The region for endpoint. See README for all possible values.
-| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True or false
+| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True || false
 | alarmActions           | JSON       | Optional: Array of strings. The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN). See README for more details.
 | alarmDescription       | String     | Optional: The description for the alarm. Minimum length of 0. Maximum length of 1024.
 | alarmName              | String     | Required: The name for the alarm. This name must be unique within the AWS account. Minimum length of 1. Maximum length of 255.
-| comparisonOperator     | String     | Required: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand. Valid Values: GreaterThanOrEqualToThreshold / GreaterThanThreshold / LessThanThreshold / LessThanOrEqualToThreshold
+| comparisonOperator     | String     | Required: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand. Valid Values: GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanThreshold | LessThanOrEqualToThreshold
 | dimensions             | JSON       | Optional: Array of objects. The dimensions for the metric associated with the alarm. See README for more details.
 | evaluationPeriods      | String     | Required: The number of periods over which data is compared to the specified threshold. Minimum value of 1.
 | extendedStatistic      | String     | Optional: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100. Pattern: p(\d{1,2}(\.\d{0,2})?|100)
-| insufficientDataActions| JSON       | Optional: Array of strings. Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop / arn:aws:automate:region:ec2:terminate / arn:aws:automate:region:ec2:recover. See README for more deatails.
+| insufficientDataActions| JSON       | Optional: Array of strings. Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover. See README for more deatails.
 | metricName             | String     | Required: The name for the metric associated with the alarm. Minimum length of 1. Maximum length of 255.
 | namespace              | String     | Required: The namespace for the metric associated with the alarm. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
-| oKActions              | JSON       | Optional: The actions to execute when this alarm transitions to an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop / arn:aws:automate:region:ec2:terminate / arn:aws:automate:region:ec2:recover. See README for more details.
+| oKActions              | JSON       | Optional: The actions to execute when this alarm transitions to an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover. See README for more details.
 | period                 | String     | Required: The period, in seconds, over which the specified statistic is applied. Minimum value of 60.
 | statistic              | String     | Optional: The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ExtendedStatistic. Valid Values: SampleCount | Average | Sum | Minimum | Maximum
 | threshold              | String     | Required: The value against which the specified statistic is compared.
-| unit                   | String     | Optional: The unit of measure for the statistic. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
+| unit                   | String     | Optional: The unit of measure for the statistic. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
-#### alarmActions format. Valid Values: arn:aws:automate:region:ec2:stop / arn:aws:automate:region:ec2:terminate / arn:aws:automate:region:ec2:recover
+#### alarmActions format. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover
     ```json
 ["arn:aws:automate:region:ec2:stop"]
 ```
@@ -148,7 +148,7 @@ Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates 
 | metricName     | String     | Required: The name of the metric. Minimum length of 1. Maximum length of 255.
 | statisticValues| JSON       | Optional: Json object. The statistical values for the metric. See README for more details.
 | timestamp      | String     | Optional: The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
-| unit           | String     | Optional: The unit of the metric. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
+| unit           | String     | Optional: The unit of the metric. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 | value          | String     | Optional: The value for the metric. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 | namespace      | String     | Required: The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
 
@@ -184,7 +184,7 @@ Temporarily sets the state of an alarm for testing purposes. When the updated st
 | alarmName      | String     | Required: The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.
 | stateReason    | String     | Required: The reason that this alarm is set to this specific state, in text format.
 | stateReasonData| String     | Optional: The reason that this alarm is set to this specific state, in JSON format.
-| stateValue     | String     | Optional: The value of the state. Valid Values: OK / ALARM / INSUFFICIENT_DATA
+| stateValue     | String     | Optional: The value of the state. Valid Values: OK | ALARM | INSUFFICIENT_DATA
 
 
 ## AmazonCloudWatch.deleteAlarms
@@ -211,11 +211,11 @@ Retrieves the history for the specified alarm. You can filter the results by dat
 | apiSecret      | credentials| Required: API secret  obtained from Amazon.
 | region         | String     | Required: The region for endpoint. See README for all possible values.
 | alarmName      | String     | Optional: The name of the alarm. Minimum length of 1. Maximum length of 255.
-| endDate        | String     | Optional: The ending date to retrieve alarm history. Timestamp (string/DateTime or anything parsable by strtotime).
-| historyItemType| String     | Optional: The type of alarm histories to retrieve. Valid Values: ConfigurationUpdate / StateUpdate / Action
+| endDate        | String     | Optional: The ending date to retrieve alarm history. Timestamp (string|DateTime or anything parsable by strtotime).
+| historyItemType| String     | Optional: The type of alarm histories to retrieve. Valid Values: ConfigurationUpdate | StateUpdate | Action
 | maxRecords     | String     | Optional: The maximum number of alarm history records to retrieve. Minimum value of 1. Maximum value of 100.
 | nextToken      | String     | Optional: The token returned by a previous call to indicate that there is more data available.
-| startDate      | String     | Optional: The starting date to retrieve alarm history. Timestamp (string/DateTime or anything parsable by strtotime).
+| startDate      | String     | Optional: The starting date to retrieve alarm history. Timestamp (string|DateTime or anything parsable by strtotime).
 
 
 ## AmazonCloudWatch.describeAlarms
@@ -231,7 +231,7 @@ Retrieves the specified alarms. If no alarms are specified, all alarms are retur
 | alarmNames     | JSON       | Optional: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
 | maxRecords     | String     | Optional: The maximum number of alarm descriptions to retrieve. Minimum value of 1. Maximum value of 100.
 | nextToken      | String     | Optional: The token returned by a previous call to indicate that there is more data available.
-| stateValue     | String     | Optional: The state value to be used in matching alarms. Valid Values: OK / ALARM / INSUFFICIENT_DATA
+| stateValue     | String     | Optional: The state value to be used in matching alarms. Valid Values: OK | ALARM | INSUFFICIENT_DATA
 
 #### alarmNames format
     ```json
@@ -252,7 +252,7 @@ Retrieves the alarms for the specified metric. Specify a statistic, period, or u
 | namespace        | String     | Required: The namespace of the metric. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
 | period           | String     | Optional: The period, in seconds, over which the statistic is applied. Minimum value of 60.
 | statistic        | String     | Optional: The statistic for the metric, other than percentiles. For percentile statistics, use ExtendedStatistics. Valid Values: SampleCount | Average | Sum | Minimum | Maximum
-| unit             | String     | Optional: The unit for the metric. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
+| unit             | String     | Optional: The unit for the metric. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
 #### dimensions format
     ```json
