@@ -71,7 +71,7 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | apiKey                 | credentials| Required: API key obtained from Amazon.
 | apiSecret              | credentials| Required: API secret  obtained from Amazon.
 | region                 | String     | Required: The region for endpoint. See README for all possible values.
-| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True or False
+| actionsEnabled         | String     | Optional: True or False. Indicates whether actions should be executed during any changes to the alarm state.
 | alarmActions           | JSON       | Optional: Array of strings. The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN). See README for more details.
 | alarmDescription       | String     | Optional: The description for the alarm. Minimum length of 0. Maximum length of 1024.
 | alarmName              | String     | Required: The name for the alarm. This name must be unique within the AWS account. Minimum length of 1. Maximum length of 255.
