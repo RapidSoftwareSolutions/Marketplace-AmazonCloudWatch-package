@@ -71,7 +71,7 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | apiKey                 | credentials| Required: API key obtained from Amazon.
 | apiSecret              | credentials| Required: API secret  obtained from Amazon.
 | region                 | String     | Required: The region for endpoint. See README for all possible values.
-| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True || false
+| actionsEnabled         | String     | Optional: Indicates whether actions should be executed during any changes to the alarm state. True / false
 | alarmActions           | JSON       | Optional: Array of strings. The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN). See README for more details.
 | alarmDescription       | String     | Optional: The description for the alarm. Minimum length of 0. Maximum length of 1024.
 | alarmName              | String     | Required: The name for the alarm. This name must be unique within the AWS account. Minimum length of 1. Maximum length of 255.
@@ -176,7 +176,7 @@ Retrieves the alarms for the specified metric. Specify a statistic, period, or u
 | metricName       | String     | Required: The name of the metric. Minimum length of 1. Maximum length of 255.
 | namespace        | String     | Required: The namespace of the metric. Minimum length of 1. Maximum length of 255.
 | period           | String     | Optional: The period, in seconds, over which the statistic is applied. Minimum value of 60.
-| statistic        | String     | Optional: The statistic for the metric, other than percentiles. For percentile statistics, use ExtendedStatistics. Valid Values: SampleCount / Average | Sum | Minimum | Maximum
+| statistic        | String     | Optional: The statistic for the metric, other than percentiles. For percentile statistics, use ExtendedStatistics. Valid Values: SampleCount / Average / Sum / Minimum / Maximum
 | unit             | String     | Optional: The unit for the metric. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
 
 
