@@ -41,16 +41,7 @@ This endpoint allows to retrieve list the specified metrics.
 | metricName| String     | Optional: The name of the metric to filter against. Minimum length of 1. Maximum length of 255.
 | namespace | String     | Optional: The namespace to filter against. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
 | nextToken | String     | Optional: The token returned by a previous call to indicate that there is more data available.
-
-#### dimensions format
-    ```json
-[
-    {
-        "Name": "Test",
-        "Value": "50"
-    }
-]
-```
+    
 
 ## AmazonCloudWatch.getMetricStatistics
 This endpoint allows to gets statistics for the specified metric.
@@ -70,23 +61,6 @@ This endpoint allows to gets statistics for the specified metric.
 | statistics        | JSON       | Optional: Array of strings. The metric statistics, other than percentile. For percentile statistics, use ExtendedStatistic. Minimum number of 1 item. Maximum number of 5 items. Valid Values: SampleCount | Average | Sum | Minimum | Maximum
 | unit              | String     | Optional: The unit for a given metric. Metrics may be reported in multiple units. Not supplying a unit results in all units being returned. If the metric only ever reports one unit, specifying a unit has no effect. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
-#### dimensions format
-    ```json
-[
-    {
-        "Name": "Test",
-        "Value": "50"
-    }
-]
-```
-#### extendedStatistics format
-    ```json
-["p0.2", "p25"]
-```
-#### statistics format
-    ```json
-["Average", "Sum"]
-```
 
 ## AmazonCloudWatch.putMetricAlarm
 This endpoint allows to creates or updates an alarm and associates it with the specified metric.
@@ -113,28 +87,6 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | threshold              | String     | Required: The value against which the specified statistic is compared.
 | unit                   | String     | Optional: The unit of measure for the statistic. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
-#### alarmActions format. Valid Values: arn:aws:automate:region:ec2:stop | arn:aws:automate:region:ec2:terminate | arn:aws:automate:region:ec2:recover
-    ```json
-["arn:aws:automate:region:ec2:stop"]
-```
-#### dimensions format
-    ```json
-[
-    {
-        "Name": "Test",
-        "Value": "50"
-    }
-]
-```
-#### insufficientDataActions format
-    ```json
-["arn:aws:automate:region:ec2:terminate"]
-```
-#### OKActions format
-    ```json
-["arn:aws:automate:region:ec2:recover"]
-```
-
 
 ## AmazonCloudWatch.putMetricData
 Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric.
@@ -152,26 +104,6 @@ Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates 
 | value          | String     | Optional: The value for the metric. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
 | namespace      | String     | Required: The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
 
-#### dimensions format
-    ```json
-[
-    {
-        "Name": "Test",
-        "Value": "50"
-    }
-]
-```
-#### statisticValues format
-    ```json
-[
-    {
-        "Maximum": "80",
-        "Minimum": "10",
-        "SampleCount": "5",
-        "Sum": "90"
-    }
-]
-```
 
 ## AmazonCloudWatch.setAlarmState
 Temporarily sets the state of an alarm for testing purposes. When the updated state differs from the previous value, the action configured for the appropriate state is invoked.
@@ -196,11 +128,7 @@ Deletes the specified alarms. In the event of an error, no alarms are deleted.
 | apiSecret | credentials| Required: API secret  obtained from Amazon.
 | region    | String     | Required: The region for endpoint. See README for all possible values.
 | alarmNames| JSON       | Required: Array of strings. The alarms to be deleted. Members: Maximum number of 100 items.
-
-#### alarmNames format
-    ```json
-["test alarm"]
-```
+    
 
 ## AmazonCloudWatch.describeAlarmHistory
 Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned.
@@ -233,10 +161,6 @@ Retrieves the specified alarms. If no alarms are specified, all alarms are retur
 | nextToken      | String     | Optional: The token returned by a previous call to indicate that there is more data available.
 | stateValue     | String     | Optional: The state value to be used in matching alarms. Valid Values: OK | ALARM | INSUFFICIENT_DATA
 
-#### alarmNames format
-    ```json
-["test alarm"]
-```
 
 ## AmazonCloudWatch.describeAlarmsForMetric
 Retrieves the alarms for the specified metric. Specify a statistic, period, or unit to filter the results.
@@ -254,15 +178,6 @@ Retrieves the alarms for the specified metric. Specify a statistic, period, or u
 | statistic        | String     | Optional: The statistic for the metric, other than percentiles. For percentile statistics, use ExtendedStatistics. Valid Values: SampleCount | Average | Sum | Minimum | Maximum
 | unit             | String     | Optional: The unit for the metric. Valid Values: Seconds | Microseconds | Milliseconds | Bytes | Kilobytes | Megabytes | Gigabytes | Terabytes | Bits | Kilobits | Megabits | Gigabits | Terabits | Percent | Count | Bytes/Second | Kilobytes/Second | Megabytes/Second | Gigabytes/Second | Terabytes/Second | Bits/Second | Kilobits/Second | Megabits/Second | Gigabits/Second | Terabits/Second | Count/Second | None
 
-#### dimensions format
-    ```json
-[
-    {
-        "Name": "Test",
-        "Value": "50"
-    }
-]
-```
 
 ## AmazonCloudWatch.disableAlarmActions
 Disables the actions for the specified alarms. When an alarm's actions are disabled, the alarm actions do not execute when the alarm state changes.
@@ -273,11 +188,7 @@ Disables the actions for the specified alarms. When an alarm's actions are disab
 | apiSecret | credentials| Required: API secret  obtained from Amazon.
 | region    | String     | Required: The region for endpoint. See README for all possible values.
 | alarmNames| JSON       | Required: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
-
-#### alarmNames format
-    ```json
-["test alarm"]
-```
+    
 
 ## AmazonCloudWatch.enableAlarmActions
 Enables the actions for the specified alarms.
@@ -288,8 +199,4 @@ Enables the actions for the specified alarms.
 | apiSecret | credentials| Required: API secret  obtained from Amazon.
 | region    | String     | Required: The region for endpoint. See README for all possible values.
 | alarmNames| JSON       | Required: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
-
-#### alarmNames format
-    ```json
-["test alarm"]
-```
+    
