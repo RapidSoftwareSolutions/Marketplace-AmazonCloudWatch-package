@@ -40,7 +40,7 @@ This endpoint allows to retrieve list the specified metrics.
 | region    | String     | Required: The region for endpoint. See README for all possible values.
 | dimensions| JSON       | Optional: Array of objects. The dimensions to filter against. Maximum number of 10 items. See README for more details.
 | metricName| String     | Optional: The name of the metric to filter against. Minimum length of 1. Maximum length of 255.
-| namespace | String     | Optional: The namespace to filter against. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
+| namespace | String     | Optional: The namespace to filter against. Minimum length of 1. Maximum length of 255.
 | nextToken | String     | Optional: The token returned by a previous call to indicate that there is more data available.
 
 
@@ -54,9 +54,9 @@ This endpoint allows to gets statistics for the specified metric.
 | region            | String     | Required: The region for endpoint. See README for all possible values.
 | dimensions        | JSON       | Optional: Array of objects. The dimensions. CloudWatch treats each unique combination of dimensions as a separate metric. You can't retrieve statistics using combinations of dimensions that were not specially published. You must specify the same dimensions that were used when the metrics were created. See README for more details.
 | endTime           | String     | Required: The time stamp that determines the last data point to return. The value specified is exclusive; results will include data points up to the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).
-| extendedStatistics| JSON       | Optional: Array of strings. The percentile statistics. Specify values between p0.0 and p100. Array Members: Minimum number of 1 item. Maximum number of 10 items. Pattern: p(\d{1,2}(\.\d{0,2})?|100).
+| extendedStatistics| JSON       | Optional: Array of strings. The percentile statistics. Specify values between p0.0 and p100. Array Members: Minimum number of 1 item. Maximum number of 10 items
 | metricName        | String     | Required: The name of the metric, with or without spaces. Minimum length of 1. Maximum length of 255.
-| namespace         | String     | Required: The namespace of the metric, with or without spaces. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
+| namespace         | String     | Required: The namespace of the metric, with or without spaces. Minimum length of 1. Maximum length of 255.
 | period            | String     | Required: The granularity, in seconds, of the returned data points. A period can be as short as one minute (60 seconds) and must be a multiple of 60. The default value is 60. See README for more details.
 | startTime         | String     | Required: The time stamp that determines the first data point to return. Note that start times are evaluated relative to the time that CloudWatch receives the request. The value specified is inclusive; results include data points with the specified time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).
 | statistics        | JSON       | Optional: Array of strings. The metric statistics, other than percentile. For percentile statistics, use ExtendedStatistic. Minimum number of 1 item. Maximum number of 5 items. Valid Values: SampleCount / Average / Sum / Minimum / Maximum
@@ -78,11 +78,11 @@ This endpoint allows to creates or updates an alarm and associates it with the s
 | comparisonOperator     | String     | Required: The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand. Valid Values: GreaterThanOrEqualToThreshold / GreaterThanThreshold / LessThanThreshold / LessThanOrEqualToThreshold
 | dimensions             | JSON       | Optional: Array of objects. The dimensions for the metric associated with the alarm. See README for more details.
 | evaluationPeriods      | String     | Required: The number of periods over which data is compared to the specified threshold. Minimum value of 1.
-| extendedStatistic      | String     | Optional: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100. Pattern: p(\d{1,2}(\.\d{0,2})?|100)
+| extendedStatistic      | String     | Optional: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 | insufficientDataActions| JSON       | Optional: Array of strings. Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop / arn:aws:automate:region:ec2:terminate / arn:aws:automate:region:ec2:recover. See README for more deatails.
 | metricName             | String     | Required: The name for the metric associated with the alarm. Minimum length of 1. Maximum length of 255.
-| namespace              | String     | Required: The namespace for the metric associated with the alarm. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
-| oKActions              | JSON       | Optional: The actions to execute when this alarm transitions to an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop / arn:aws:automate:region:ec2:terminate / arn:aws:automate:region:ec2:recover. See README for more details.
+| namespace              | String     | Required: The namespace for the metric associated with the alarm. Minimum length of 1. Maximum length of 255.
+| oKActions              | JSON       | Optional: The actions to execute when this alarm transitions to an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN). Maximum number of 5 items. Minimum length of 1. Maximum length of 1024. Valid Values: arn:aws:automate:region:ec2:stop arn:aws:automate:region:ec2:terminate  arn:aws:automate:region:ec2:recover. See README for more details.
 | period                 | String     | Required: The period, in seconds, over which the specified statistic is applied. Minimum value of 60.
 | statistic              | String     | Optional: The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ExtendedStatistic. Valid Values: SampleCount / Average / Sum / Minimum / Maximum
 | threshold              | String     | Required: The value against which the specified statistic is compared.
@@ -103,7 +103,7 @@ Publishes metric data points to Amazon CloudWatch. Amazon CloudWatch associates 
 | timestamp      | String     | Optional: The time the metric data was received, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
 | unit           | String     | Optional: The unit of the metric. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
 | value          | String     | Optional: The value for the metric. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
-| namespace      | String     | Required: The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
+| namespace      | String     | Required: The namespace for the metric data. You cannot specify a namespace that begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by Amazon Web Services products. Minimum length of 1. Maximum length of 255.
 
 
 ## AmazonCloudWatch.setAlarmState
@@ -172,9 +172,9 @@ Retrieves the alarms for the specified metric. Specify a statistic, period, or u
 | apiSecret        | credentials| Required: API secret  obtained from Amazon.
 | region           | String     | Required: The region for endpoint. See README for all possible values.
 | dimensions       | JSON       | Optional: Array of objects. The dimensions associated with the metric. If the metric has any associated dimensions, you must specify them in order for the call to succeed. Members: Maximum number of 10 items. See README for more details.
-| extendedStatistic| String     | Optional: The percentile statistic for the metric. Specify a value between p0.0 and p100. Pattern: p(\d{1,2}(\.\d{0,2})?|100)
+| extendedStatistic| String     | Optional: The percentile statistic for the metric. Specify a value between p0.0 and p100.
 | metricName       | String     | Required: The name of the metric. Minimum length of 1. Maximum length of 255.
-| namespace        | String     | Required: The namespace of the metric. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
+| namespace        | String     | Required: The namespace of the metric. Minimum length of 1. Maximum length of 255.
 | period           | String     | Optional: The period, in seconds, over which the statistic is applied. Minimum value of 60.
 | statistic        | String     | Optional: The statistic for the metric, other than percentiles. For percentile statistics, use ExtendedStatistics. Valid Values: SampleCount / Average | Sum | Minimum | Maximum
 | unit             | String     | Optional: The unit for the metric. Valid Values: Seconds / Microseconds / Milliseconds / Bytes / Kilobytes / Megabytes / Gigabytes / Terabytes / Bits / Kilobits / Megabits / Gigabits / Terabits / Percent / Count / Bytes/Second / Kilobytes/Second / Megabytes/Second / Gigabytes/Second / Terabytes/Second / Bits/Second / Kilobits/Second / Megabits/Second / Gigabits/Second / Terabits/Second / Count/Second / None
