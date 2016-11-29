@@ -4,8 +4,9 @@ Amazon CloudWatch enables you to publish, monitor, and manage various metrics, a
 * Credentials: apiKey, apiSecret
 
 ## How to get credentials:
-    0. Go to [Amazon Console](https://console.aws.amazon.com/console/home?region=us-east-1)
-                                  1. Log in or create new account
+
+0. Go to [Amazon Console](https://console.aws.amazon.com/console/home?region=us-east-1)
+1. Log in or create new account
 2. Create new group in Groups section at the left side with necessary polices
 3. Create new user and assign to existing group
 4. After creating user you will see credentials
@@ -41,7 +42,7 @@ This endpoint allows to retrieve list the specified metrics.
 | metricName| String     | Optional: The name of the metric to filter against. Minimum length of 1. Maximum length of 255.
 | namespace | String     | Optional: The namespace to filter against. Minimum length of 1. Maximum length of 255. Pattern: [^:].*
 | nextToken | String     | Optional: The token returned by a previous call to indicate that there is more data available.
-    
+
 
 ## AmazonCloudWatch.getMetricStatistics
 This endpoint allows to gets statistics for the specified metric.
@@ -128,7 +129,7 @@ Deletes the specified alarms. In the event of an error, no alarms are deleted.
 | apiSecret | credentials| Required: API secret  obtained from Amazon.
 | region    | String     | Required: The region for endpoint. See README for all possible values.
 | alarmNames| JSON       | Required: Array of strings. The alarms to be deleted. Members: Maximum number of 100 items.
-    
+
 
 ## AmazonCloudWatch.describeAlarmHistory
 Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned.
@@ -188,7 +189,7 @@ Disables the actions for the specified alarms. When an alarm's actions are disab
 | apiSecret | credentials| Required: API secret  obtained from Amazon.
 | region    | String     | Required: The region for endpoint. See README for all possible values.
 | alarmNames| JSON       | Required: Array of strings. The names of the alarms. Members: Maximum number of 100 items. See README for more details.
-    
+
 
 ## AmazonCloudWatch.enableAlarmActions
 Enables the actions for the specified alarms.
