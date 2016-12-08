@@ -1,5 +1,5 @@
 # AmazonCloudWatch Package
-Amazon CloudWatch enables you to publish, monitor, and manage various metrics, as well as configure alarm actions based on data from metrics.
+Monitor your AWS resources in near real-time.
 * Domain: amazon.com
 * Credentials: apiKey, apiSecret
 
