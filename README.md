@@ -1,3 +1,5 @@
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/AmazonCloudWatch/functions?utm_source=RapidAPIGitHub_AmazonCloudFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+
 # AmazonCloudWatch Package
 Monitor your AWS resources in near real-time.
 * Domain: amazon.com
