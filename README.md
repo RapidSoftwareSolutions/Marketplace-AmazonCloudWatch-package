@@ -7,11 +7,10 @@ Monitor your AWS resources in near real-time.
 
 ## How to get credentials:
 
-0. Go to [Amazon Console](https://console.aws.amazon.com/console/home?region=us-east-1)
+0. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1)
 1. Log in or create new account
-2. Create new group in Groups section at the left side with necessary polices
-3. Create new user and assign to existing group
-4. After creating user you will see credentials
+2. Navigate to the [Security Credentials page](https://console.aws.amazon.com/iam/home?#/security_credential)
+3. Click "create new access key" to generate your credentials
 
 #### region possible values
 
