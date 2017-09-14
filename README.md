@@ -5,7 +5,6 @@ Monitor your AWS resources in near real-time.
 * Domain: [AmazonCloudWatch](http://amazon.com)
 * Credentials: apiKey, apiSecret
 
-## How to get credentials: 
 ## How to get credentials:
 
 0. Go to the [AWS Console](https://console.aws.amazon.com/console/home?region=us-east-1)
