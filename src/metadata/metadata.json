@@ -20,6 +20,12 @@
       "apiSecret"
     ]
   },
+  "steps": [
+    "Go to the AWS Console (https://console.aws.amazon.com/console/home?region=us-east-1)",
+    "Log in or create new account",
+    "Navigate to the Security Credentials page (https://console.aws.amazon.com/iam/home?#/security_credential)",
+    "Click 'create new access key' to generate your credentials"
+  ],
   "blocks": [
     {
       "name": "listMetrics",
